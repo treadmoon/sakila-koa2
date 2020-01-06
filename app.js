@@ -6,9 +6,22 @@ const onerror = require('koa-onerror')
 const bodyparser = require('koa-bodyparser')
 const logger = require('koa-logger')
 const cors = require('koa2-cors');
+const koaRequest = require('koa-http-request');
 
 const index = require('./routes/index')
 const users = require('./routes/users')
+
+app.use(koaRequest({
+  json: true, //automatically parsing of JSON response
+  timeout: 3000,    //3s timeout
+  host: 'https://api.github.com'
+}));
+
+app.use(koaRequest({
+  json: true, //automatically parsing of JSON response
+  timeout: 3000,    //3s timeout
+  host: 'https://api.weixin.qq.com/cgi-bin/'
+}));
 
 // error handler
 onerror(app)
