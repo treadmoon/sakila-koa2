@@ -88,7 +88,7 @@ router.post('/code', async (ctx, next) => {
 
   var ret = {
     jsapi_ticket: ctx.session.ticket,//上个步骤中获取到的 jsapi_ticket。
-    nonceStr: createNonceStr(),
+    noncestr: createNonceStr(),
     timestamp: createTimestamp(),
     url: params.url,
   };
