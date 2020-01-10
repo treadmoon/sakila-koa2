@@ -99,6 +99,7 @@ router.post('/code', async (ctx, next) => {
 
 
   ctx.body = {
+    appId: params.appid,
     signature,
     ...ret
   }
