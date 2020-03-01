@@ -8,6 +8,7 @@ const logger = require('koa-logger')
 const cors = require('koa2-cors');
 const koaRequest = require('koa-http-request');
 const session = require("koa-session2");
+const response = require('koa2-response');
 
 app.keys = ['some secret hurr'];
 
@@ -53,6 +54,7 @@ app.use(bodyparser({
 app.use(json())
 app.use(logger())
 app.use(require('koa-static')(__dirname + '/public'))
+app.use(response);
 
 app.use(views(__dirname + '/views', {
   extension: 'pug'
