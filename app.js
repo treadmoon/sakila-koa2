@@ -29,6 +29,7 @@ app.use(session(CONFIG, app));
 
 const index = require('./routes/index')
 const users = require('./routes/users')
+const meil_shop = require('./routes/meil_shop')
 
 app.use(koaRequest({
   json: true, //automatically parsing of JSON response
@@ -79,6 +80,7 @@ app.use(async (ctx, next) => {
 // routes
 app.use(index.routes(), index.allowedMethods())
 app.use(users.routes(), users.allowedMethods())
+app.use(meil_shop.routes(), meil_shop.allowedMethods())
 
 // error-handling
 app.on('error', (err, ctx) => {

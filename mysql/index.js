@@ -28,7 +28,6 @@ class Mysql {
                     throw error
                 };
                 resolve(results)
-                // console.log('The solution is: ', results[0].solution);
             });
         })
     }
